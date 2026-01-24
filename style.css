@@ -1,0 +1,158 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+#controls {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 40px;
+  user-select: none;
+  align-items:end;
+}
+
+.movement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.movement .row {
+  display: flex;
+  gap: 6px;
+}
+
+.rotation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#controls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+#controls button:hover{
+  background: rgba(255,255,255,0.1);
+}
+
+#controls button:active {
+  background: rgba(255,255,255,0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#artifact-nav {
+  position: fixed;
+  top: 6%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse; /* IMPORTANT */
+  gap: 12px;
+  z-index: 20;
+}
+
+/* Toggle button */
+#nav-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+#nav-toggle:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+#nav-toggle .arrow {
+  font-size: 22px;
+  transition: transform 0.35s ease;
+}
+
+/* Nav items container */
+.nav-items {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.45s ease, opacity 0.25s ease;
+  padding: 4px 0;
+
+  /* hide scrollbar (cross-browser) */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+}
+
+.nav-items::-webkit-scrollbar {
+  display: none; /* Chrome / Safari */
+}
+
+/* Individual nav item */
+.nav-item {
+  white-space: nowrap;
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-1px);
+}
+
+/* Expanded state */
+#artifact-nav.expanded .nav-items {
+  max-width: calc(100vw - 100px); /* viewport-safe */
+  opacity: 1;
+}
+
+.reset-camera{
+  background: rgba(255,255,255,0.4);
+}

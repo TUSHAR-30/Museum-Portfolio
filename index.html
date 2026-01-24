@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3dmueseum</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/loader.css">
+</head>
+
+<body>
+  <div id="loading">
+  <div class="loader-content">
+    <div class="loader-title">Entering the Museum</div>
+
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+
+    <div class="loader-percent">0%</div>
+  </div>
+</div>
+
+  
+  <div id="controls">
+    <div class="movement">
+      <button id="forward">W</button>
+      <div class="row">
+        <button id="left">A</button>
+        <button id="backward">S</button>
+        <button id="right">D</button>
+      </div>
+    </div>
+  
+    <div class="rotation">
+      <button id="rotateLeft" data-label="Look Left">⟲</button>
+      <button id="rotateRight">⟳</button>
+    </div>
+  </div>
+
+  <div id="artifact-nav" class="expanded">
+    <button id="nav-toggle">
+      <span class="arrow">&gt;</span>
+    </button>
+  
+    <div class="nav-items">
+      <button class="nav-item reset-camera" data-target="Reset Camera">Reset Camera</button>
+      <button class="nav-item" data-target="AbouteMe">About Me</button>
+      <button class="nav-item" data-target="Skills">Skills</button>
+      <button class="nav-item" data-target="Experience">Experience</button>
+      <button class="nav-item" data-target="Projects">Projects</button>
+      <button class="nav-item" data-target="Education">Education</button>
+      <button class="nav-item" data-target="Accomplishments">Accomplishments</button>
+      <button class="nav-item" data-target="Idols">Idols</button>
+      <button class="nav-item" data-target="Motivations">Motivations</button>
+    </div>
+  </div>
+  
+  
+  
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
