@@ -1,7 +1,7 @@
 export const navbarConfigMobile=[
     {
         "teleportName":"Reset Camera",
-        "position":[0,0,0.01],
+        "position":[0,0,50],
         "target":[0,0,0]
     },
     {

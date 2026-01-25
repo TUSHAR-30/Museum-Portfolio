@@ -35,11 +35,16 @@ const preFetchResoucesPaths = {
             "modelName": "StandWithSqaureBase",
             "modelPath": "resources/models/StandWithSqaureBase.glb"
         },
-        {
-            "modelID": "7",
-            "modelName": "HumanTushar",
-            "modelPath": "resources/models/HumanTushar.glb"
-        }
+        // {
+        //     "modelID": "7",
+        //     "modelName": "HumanTushar",
+        //     "modelPath": "resources/models/HumanTushar.glb"
+        // },
+        // {
+        //     "modelID": "7",
+        //     "modelName": "chair",
+        //     "modelPath": "resources/models/chair.glb"
+        // }
     ],
     "images": [
        

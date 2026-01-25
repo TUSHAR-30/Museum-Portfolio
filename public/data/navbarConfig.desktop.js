@@ -36,8 +36,8 @@ export const navbarConfigDesktop=[
     },
     {
         "teleportName":"Idols",
-        "position":[-40, 0, 40],
-        "target":[-40, 0, 40.01]
+        "position":[-40, 0, 30],
+        "target":[-40, 0, 30.01]
     },
     {
         "teleportName":"Motivations",

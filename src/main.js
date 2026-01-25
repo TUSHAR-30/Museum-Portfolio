@@ -4,7 +4,7 @@ import { loadModels } from "./loaders/modelLoader.js";
 import { loadTextures } from "./loaders/textureLoader.js";
 import { addLights, addSceneEnvironment, createVideoasBackground } from "./threejsCore/lights.js";
 import { manager } from './threejsCore/loadingManager.js';
-import { camera, controls } from "./threejsCore/scene.js"
+import { camera } from "./threejsCore/scene.js"
 import { applyMaterialToMuseumMeshes, hideMuseumMesh } from './world/museum.js';
 import { addFrameModelsToScene } from './world/frame.js';
 import { createAboutMeSection } from './world/aboutMe.js';
@@ -15,8 +15,10 @@ import { createPraises } from './world/praises.js';
 import { addInstanceToScene } from './threejsCore/instancesSceneAddition.js';
 import { createEducation } from './world/education.js';
 import { createVisuals } from './world/visuals.js';
+import { entryAnimation } from "./utils/entryAnimation.js";
+import { createOribtControls } from "./threejsCore/orbitControls.js";
 import { createReticleBasedMovement } from "./threejsCore/newReticleBasedMovement.js";
-import "./utils/navbar.js"
+import { createNavbar } from "./utils/navbar.js";
 
 
 // addLights()
@@ -35,9 +37,6 @@ Promise.all([
   const instances = addInstanceToScene({ modelCache })
   const MuseumModel = instances["Museum-0"]
   hideMuseumMesh({ MuseumModel })
-
-  // Create reticleBased Movement
-  createReticleBasedMovement({ MuseumModel, controls })
 
   // Apply material to Museummeshes
   applyMaterialToMuseumMeshes({ MuseumModel, textures })
@@ -62,6 +61,13 @@ Promise.all([
 
   // Create Visuals
   createVisuals({ textures })
+
+  // Entry Animation
+  entryAnimation({MuseumModel,instances,camera}).then(()=>{
+    const controls=createOribtControls();
+    createReticleBasedMovement({ MuseumModel, controls })
+    createNavbar({controls})
+  })
 
   // // // Initialise Tweakpane
   // initTweakpane({ instances })

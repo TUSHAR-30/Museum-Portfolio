@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import { updateControls } from './newKeyEvents';
 import mixerAnimationManager from '../utils/mixerAnimationManager';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { isMobileDevice } from '../utils/device';
+import { getOrbitControls } from './orbitControls';
 
 
 // --------------------
@@ -19,7 +19,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(0,0,isMobileDevice() ? 0.01:50)
+camera.position.set(0, 0, isMobileDevice() ? 0.01 : 50)
 
 const direction = new THREE.Vector3();
 camera.getWorldDirection(direction);
@@ -36,22 +36,26 @@ renderer.toneMappingExposure = 0.7; // start here
 
 document.body.appendChild(renderer.domElement);
 
-const controls = new OrbitControls(camera, renderer.domElement)
-controls.enablePan = false;
-controls.enableZoom = false;
-controls.minPolarAngle = Math.PI / 2;
-controls.maxPolarAngle = Math.PI / 2;
-controls.enabled=true
-
 // --------------------
 // Render Loop
 // --------------------
 const clock = new THREE.Clock();
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    clock.getDelta(); // 🔥 flush accumulated time
+  }
+});
+
 export function animate() {
   const delta = clock.getDelta();
   mixerAnimationManager.update(delta);
-  updateControls({ controls })
-  controls.update()
+  (function () {
+    let controls = getOrbitControls();
+    if (controls) {
+      updateControls({ controls })
+      controls.update()
+    }
+  })()
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 }
@@ -64,4 +68,4 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 })
 
-export { scene, camera, renderer, controls };
+export { scene, camera, renderer };

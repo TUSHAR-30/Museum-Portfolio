@@ -172,37 +172,37 @@ export const modelsConfig = [
     //     ]
     // },
 
-    {
-        "modelName": "HumanTushar",
-        "modelType": "animated",
-        "modelInstances": [
-            {
-                "instanceName": "HumanTushar-0",
-                "instanceInitialTransforms": {
-                    "position": [-19,-25.2,114],  // position can be there or random so if position then type is array else null. Same for rotation and scale
-                    "rotation": [0, 0.1, 0],
-                    "scale": [12,11,15],
-                    "visible": true,    // added visiblity just in case if we want invisible
-                },
-                "actions": [
-                    {
-                        "actionName": "Inviting",
-                        "instanceTransformsDuringAction": {
-                            "position": [-19,-25.2,114],
-                            "rotation": [0, 0.1, 0],
-                            "scale": [12, 11, 15],  // Didn't need visible prop during action because we will always visible the instance through code
-                        },
-                        "instanceTransformsAfterAction": {
-                            "position": [],
-                            "rotation": [0, 0, 0],
-                            "scale": [1, 1, 1],
-                            "visible": false,
-                        }
-                    }
-                ],
-            }
-        ]
-    },
+    // {
+    //     "modelName": "HumanTushar",
+    //     "modelType": "animated",
+    //     "modelInstances": [
+    //         {
+    //             "instanceName": "HumanTushar-0",
+    //             "instanceInitialTransforms": {
+    //                 "position": [-19,-25.2,114],  // position can be there or random so if position then type is array else null. Same for rotation and scale
+    //                 "rotation": [0, 0.1, 0],
+    //                 "scale": [12,11,15],
+    //                 "visible": true,    // added visiblity just in case if we want invisible
+    //             },
+    //             "actions": [
+    //                 {
+    //                     "actionName": "Inviting",
+    //                     "instanceTransformsDuringAction": {
+    //                         "position": [-19,-25.2,114],
+    //                         "rotation": [0, 0.1, 0],
+    //                         "scale": [12, 11, 15],  // Didn't need visible prop during action because we will always visible the instance through code
+    //                     },
+    //                     "instanceTransformsAfterAction": {
+    //                         "position": [],
+    //                         "rotation": [0, 0, 0],
+    //                         "scale": [1, 1, 1],
+    //                         "visible": false,
+    //                     }
+    //                 }
+    //             ],
+    //         }
+    //     ]
+    // },
 
 
     // Non-Animated
@@ -213,14 +213,30 @@ export const modelsConfig = [
             {
                 "instanceName": "Museum-0",
                 "instanceInitialTransforms": {
-                    "position": [0, 0, 0],  // position can be there or random so if position then type is array else null. Same for rotation and scale
+                    "position": [0, 9, 0],  // position can be there or random so if position then type is array else null. Same for rotation and scale
                     "rotation": [0, 0, 0],
-                    "scale": [1, 1, 1],
+                    "scale": [1, 1.4, 1],
                     "visible": true,    // added visiblity just in case if we want invisible
                 }
             }
         ]
     },
+
+    // {
+    //     "modelName": "chair",
+    //     "modelType": "non-animated",
+    //     "modelInstances": [
+    //         {
+    //             "instanceName": "chair-0",
+    //             "instanceInitialTransforms": {
+    //                 "position": [-19,-25.2,114],  // position can be there or random so if position then type is array else null. Same for rotation and scale
+    //                 "rotation": [0, 0, 0],
+    //                 "scale": [12,11,15],
+    //                 "visible": true,    // added visiblity just in case if we want invisible
+    //             }
+    //         }
+    //     ]
+    // },
 
     // {
     //     "modelName": "DummyHumanFamily",
@@ -358,7 +374,7 @@ export const modelsConfig = [
             {
                 "instanceName": "SingleMeshFrame-0",
                 "instanceInitialTransforms": {
-                    "position": [0, 10, 101],
+                    "position": [0, 20, 101],
                     "rotation": [0, 0, 0],
                     "scale": [8, 6, 6],
                     "visible": true,    // added visiblity just in case if we want invisible
@@ -367,7 +383,7 @@ export const modelsConfig = [
             {
                 "instanceName": "SingleMeshFrame-1",
                 "instanceInitialTransforms": {
-                    "position": [0, 10, 99],
+                    "position": [0, 20, 99],
                     "rotation": [0, 3.14, 0],
                     "scale": [8, 6, 6],
                     "visible": true,    // added visiblity just in case if we want invisible
