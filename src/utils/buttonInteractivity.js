@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import { camera } from "../threejsCore/scene";
+import { camera, renderer } from "../threejsCore/scene";
+
 
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
@@ -7,11 +8,26 @@ const mouse = new THREE.Vector2();
 const interactiveButtons = []; // 🔑 only buttons
 let hoveredButton = null;
 
-window.addEventListener("mousemove", (event) => {
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    updateButtonHover()
-});
+renderer.domElement.addEventListener("mousemove", onMouseMove);
+renderer.domElement.addEventListener("click", onClick);
+
+function onMouseMove(event) {
+    const rect = renderer.domElement.getBoundingClientRect();
+
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+    updateButtonHover();
+}
+
+function onClick() {
+    if (!hoveredButton) return;
+
+    const { url, btnEvent } = hoveredButton.userData;
+    if (btnEvent) btnEvent();
+    else if (url) window.open(url, "_blank");
+}
+
 
 
 function updateButtonHover() {
@@ -31,25 +47,16 @@ function updateButtonHover() {
 
             // scale up
             hoveredButton.scale.multiplyScalar(1.2);
-            document.body.style.cursor = "pointer";
+            renderer.domElement.style.cursor = "pointer";
         }
     } else {
         if (hoveredButton) {
             hoveredButton.scale.copy(hoveredButton.userData.baseScale);
             hoveredButton = null;
-            document.body.style.cursor = "default";
+            renderer.domElement.style.cursor = "default";
         }
     }
 }
 
-window.addEventListener("click", () => {
-    if (!hoveredButton) return;
-
-    const { url, btnEvent } = hoveredButton.userData;
-    if (btnEvent) btnEvent()
-    else if (url) {
-        window.open(url, "_blank");
-    }
-});
 
 export { interactiveButtons }

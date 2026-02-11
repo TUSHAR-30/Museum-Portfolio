@@ -61,26 +61,31 @@ export function createTexture({ label }) {
 }
 
 export function createMaterial({ texture, color, isUpdateTextureProperties = false }) {
-    if (isUpdateTextureProperties) {
+
+    if (isUpdateTextureProperties && texture?.baseColor) {
         texture.baseColor.center.set(0.5, 0.5);
-        texture.baseColor.rotation = -Math.PI; // 90 degrees
+        texture.baseColor.rotation = -Math.PI;
         texture.baseColor.flipY = false;
         texture.baseColor.needsUpdate = true;
     }
-    return new THREE.MeshStandardMaterial({
-        side: THREE.DoubleSide,
-        map: texture?.baseColor,
-        color: color,
-        transparent: true,
-        aoMap: texture?.ao,
-        metalnessMap: texture?.metallic,
-        roughnessMap: texture?.roughness,
-        normalMap: texture?.normal,
 
+    const materialConfig = {
+        side: THREE.DoubleSide,
+        transparent: true,
+        color: color ?? 0xffffff,
         metalness: 0.5,
         roughness: 0.85,
-    });
+    };
+
+    if (texture?.baseColor) materialConfig.map = texture.baseColor;
+    if (texture?.ao) materialConfig.aoMap = texture.ao;
+    if (texture?.metallic) materialConfig.metalnessMap = texture.metallic;
+    if (texture?.roughness) materialConfig.roughnessMap = texture.roughness;
+    if (texture?.normal) materialConfig.normalMap = texture.normal;
+
+    return new THREE.MeshStandardMaterial(materialConfig);
 }
+
 
 export function createCrackedMaterial({ mainTexture, crackTexture }) {
 

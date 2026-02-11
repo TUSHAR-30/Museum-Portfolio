@@ -60,7 +60,7 @@ export function createReticleBasedMovement({ controls }) {
         moveCameraTo(reticle.position);
     });
 
-    window.addEventListener("pointermove", (e) => {
+    renderer.domElement.addEventListener("pointermove", (e) => {
         updateMouse(e);
 
         raycaster.setFromCamera(mouse, camera);
@@ -112,8 +112,11 @@ export function createReticleBasedMovement({ controls }) {
     }
 
     function updateMouse(event) {
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        const rect = renderer.domElement.getBoundingClientRect();
+    
+        mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
     }
+    
 
 }

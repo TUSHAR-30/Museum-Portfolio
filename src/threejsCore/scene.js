@@ -13,9 +13,11 @@ const scene = new THREE.Scene();
 const MOBILE_FOV = 88;
 const DESKTOP_FOV = 45;
 
+const container = document.getElementById('threeContainer');
+
 const camera = new THREE.PerspectiveCamera(
   isMobileDevice() ? MOBILE_FOV : DESKTOP_FOV,
-  window.innerWidth / window.innerHeight,
+  container.clientWidth / container.clientHeight,
   0.1,
   1000
 );
@@ -27,14 +29,15 @@ console.log(direction);
 
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 0.7; // start here
 
+renderer.setSize(container.clientWidth, container.clientHeight);
+container.appendChild(renderer.domElement);
 
-document.body.appendChild(renderer.domElement);
+
 
 // --------------------
 // Render Loop
@@ -62,10 +65,15 @@ export function animate() {
 
 // Resize
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+
+  camera.aspect = width / height;
   camera.fov = isMobileDevice() ? MOBILE_FOV : DESKTOP_FOV;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-})
+
+  renderer.setSize(width, height);
+});
+
 
 export { scene, camera, renderer };

@@ -1,5 +1,5 @@
 #loading {
-    position: fixed;
+    position: absolute;
     inset: 0;
     background: radial-gradient(circle at center, #0b0b0b, #000);
     display: flex;
