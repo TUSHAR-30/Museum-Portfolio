@@ -10,6 +10,7 @@ export function addInstanceToScene({ modelCache }) {
     modelsConfig.forEach((modelConfig, modelIndex) => {
         const { modelName, modelType, modelInstances } = modelConfig;
         const model = modelCache[modelName]
+        if(!model) return;
         modelInstances.forEach((modelInstance, instanceIndex) => {
             const instance = cloneModel(model);
             const { instanceName, instanceInitialTransforms } = modelInstance

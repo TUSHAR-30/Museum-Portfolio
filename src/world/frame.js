@@ -6,7 +6,7 @@ import { animateCrack, createButton, createCrackedMaterial, createMaterial, crea
 export function addFrameModelsToScene({ instances, textures }) {
     framesConfig.forEach(frameConfig => {
         const frameModel = instances[frameConfig.instanceName];
-
+        if(!frameModel) return;
         const frameTexture = textures[frameConfig.frameImageName]
         const imageMaterial = createMaterial({ texture: frameTexture, isUpdateTextureProperties: true })
         // const imageMaterial = createCrackedMaterial({ mainTexture:frameTexture.baseColor,crackTexture:textures.Crack.baseColor })

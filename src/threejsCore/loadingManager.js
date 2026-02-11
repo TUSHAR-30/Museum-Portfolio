@@ -4,13 +4,13 @@ import { animate } from "./scene";
 const loadingElement = document.getElementById("loading");
 const progressBar = document.querySelector(".progress-bar");
 const percentText = document.querySelector(".loader-percent");
+const loaderTitle= document.querySelector(".loader-title");
 
 export const manager = new THREE.LoadingManager(
   // onLoad
   () => {
     setTimeout(() => {
-      loadingElement.classList.add("hidden");
-      animate()
+      console.log("All load attempts finished");
     }, 500); // small delay feels nicer
   },
 
@@ -19,5 +19,6 @@ export const manager = new THREE.LoadingManager(
     const progress = (itemsLoaded / itemsTotal) * 100;
     progressBar.style.width = `${progress}%`;
     percentText.textContent = `${Math.round(progress)}%`;
-  }
+  },
+
 );

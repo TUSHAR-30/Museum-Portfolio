@@ -38,7 +38,14 @@ export function loadTextures(manager) {
               mapType,
               path,
             });
-            reject(err);
+            (err) => {
+              reject(
+                new Error(
+                  `Texture failed → texture: "${textureName}", map: "${mapType}", path: ${path}`
+                )
+              );
+            }
+            
           }
         );
       });

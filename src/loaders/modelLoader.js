@@ -1,6 +1,6 @@
 // loaders/modelLoader.js
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import preFetchResoucesPaths from '../../public/data/preFetchResourcesPaths';
+import preFetchResoucesPaths from '../../public/data/preFetchResourcesPaths.js';
 
 export function loadModels(manager) {
   const loader = new GLTFLoader(manager);
@@ -21,7 +21,13 @@ export function loadModels(manager) {
             resolve();
           },
           undefined,
-          reject
+          () => {
+            reject(
+              new Error(
+                `Model failed to load → name: "${modelData.modelName}", path: ${modelData.modelPath}`
+              )
+            );
+          }
         );
       });
     })

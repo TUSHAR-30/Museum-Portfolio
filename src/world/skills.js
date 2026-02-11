@@ -7,7 +7,7 @@ import gsap from 'gsap';
 export function placeSkillsStand({ instances,textures }) {
     const { instanceData, standTitleData, skillsData, gridData } = skillsConfig;
     const skillsStand = instances[instanceData.instanceName];
-
+    if(!skillsStand) return;
 
     let glassMesh, GLASS_MIN_X, GLASS_MAX_X;
     const skillItems = [];

@@ -3,7 +3,7 @@ import * as THREE from "three";
 
 export function entryAnimation({ MuseumModel, instances, camera }) {
   return new Promise((resolve, reject) => {
-
+    if(!MuseumModel) return;
     const GateAction = MuseumModel.userData.actions["GateOpenClose"]
     // const humanTushar = instances["HumanTushar-0"]
     // const WelComingAction = instances["HumanTushar-0"].userData.actions[" Welcoming"];

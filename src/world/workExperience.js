@@ -7,7 +7,8 @@ import gsap from "gsap";
 export function createWorkExperienceStand({ instances }) {
     const { instanceData, standTitleData, experiencesData } = workExperienceConfig;
     const workExperienceStand = instances[instanceData.instanceName];
-
+    if(!workExperienceStand) return;
+    
     const faceGroup = new THREE.Group();
     faceGroup.position.set(-3, 1.6, 0.01)
     workExperienceStand.add(faceGroup)

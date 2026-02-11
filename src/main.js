@@ -4,7 +4,7 @@ import { loadModels } from "./loaders/modelLoader.js";
 import { loadTextures } from "./loaders/textureLoader.js";
 import { addLights, addSceneEnvironment, createVideoasBackground } from "./threejsCore/lights.js";
 import { manager } from './threejsCore/loadingManager.js';
-import { camera } from "./threejsCore/scene.js"
+import { animate, camera } from "./threejsCore/scene.js"
 import { applyMaterialToMuseumMeshes, hideMuseumMesh } from './world/museum.js';
 import { addFrameModelsToScene } from './world/frame.js';
 import { createAboutMeSection } from './world/aboutMe.js';
@@ -63,14 +63,30 @@ Promise.all([
   createVisuals({ textures })
 
   // Entry Animation
-  entryAnimation({MuseumModel,instances,camera}).then(()=>{
-    const controls=createOribtControls();
+  entryAnimation({ MuseumModel, instances, camera }).then(() => {
+    const controls = createOribtControls();
     createReticleBasedMovement({ MuseumModel, controls })
-    createNavbar({controls})
+    createNavbar({ controls })
   })
 
   // // // Initialise Tweakpane
   // initTweakpane({ instances })
 
+  const loadingElement = document.getElementById("loading");
+  loadingElement.classList.add("hidden");
+  animate()
 
-});
+
+})
+  .catch(err => {
+    console.error("❌ Asset loading error:");
+    console.error(err.message);
+
+    const progressContainer = document.querySelector(".progress-container");
+    const percentText = document.querySelector(".loader-percent");
+    const loaderTitle = document.querySelector(".loader-title");
+
+    loaderTitle.innerHTML = "Something went wrong.\nPlease try again later.";
+    progressContainer.style.display = "none"
+    percentText.style.display = "none"
+  })

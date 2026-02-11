@@ -9,6 +9,7 @@ import { educationConfig } from "../../public/data/educationConfig";
 export function createEducation({ instances, textures }) {
     const { instanceData, educationTitleData, educationsData } = educationConfig;
     const praisesStand = instances[instanceData.instanceName];
+    if(!praisesStand) return;
 
     let glassMesh;
     praisesStand.traverse((child) => {

@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { createMaterial } from '../utils/utils';
 
 export function hideMuseumMesh({ MuseumModel }) {
+    if(!MuseumModel) return;
     MuseumModel.traverse((child) => {
         if (child.isMesh && (child.name == "Window1Glass" || child.name == "Window2Glass")) {
             child.visible = false
@@ -10,6 +11,7 @@ export function hideMuseumMesh({ MuseumModel }) {
 }
 
 export function applyMaterialToMuseumMeshes({ MuseumModel, textures }) {
+    if(!MuseumModel) return;
 
     // Create material(s)
     const materials = {

@@ -8,6 +8,7 @@ import gsap from "gsap";
 export function createPraises({ instances, textures }) {
     const { instanceData, praisesTitleData, praisesData } = praisesConfig;
     const praisesStand = instances[instanceData.instanceName];
+    if(!praisesStand) return;
 
     let glassMesh;
     praisesStand.traverse((child) => {

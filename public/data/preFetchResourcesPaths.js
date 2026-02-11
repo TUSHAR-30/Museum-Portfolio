@@ -5,11 +5,11 @@ const preFetchResoucesPaths = {
             "modelName": "Museum",
             "modelPath": "resources/models/Museum.glb"
         },
-        {
-            "modelID": "1",
-            "modelName": "Ghost",
-            "modelPath": "resources/models/Ghost.glb"
-        },
+        // {
+        //     "modelID": "1",
+        //     "modelName": "Ghost",
+        //     "modelPath": "resources/models/Ghost.glb"
+        // },
         {
             "modelID": "2",
             "modelName": "DoubleMeshFrame",
@@ -20,11 +20,11 @@ const preFetchResoucesPaths = {
             "modelName": "SingleMeshFrame",
             "modelPath": "resources/models/SingleMeshFrame.glb"
         },
-        {
-            "modelID": "4",
-            "modelName": "DummyHumanFamily",
-            "modelPath": "resources/models/DummyHumanFamily.glb"
-        },
+        // {
+        //     "modelID": "4",
+        //     "modelName": "DummyHumanFamily",
+        //     "modelPath": "resources/models/DummyHumanFamily.glb"
+        // },
         {
             "modelID": "5",
             "modelName": "StandWithLegs",
