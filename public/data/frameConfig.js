@@ -2,7 +2,7 @@ export const framesConfig=[
     {
         "frameId":'0',
         "frameImageName":"project-0",
-        "instanceName":"DoubleMeshFrame-0",
+        "instanceName":"DoubleMeshFrame-2",
         "category":{
             "categoryName":"ProjectShowCaseFrame",
             "projectTitle":"Cricket",
@@ -18,7 +18,7 @@ export const framesConfig=[
         "instanceName":"DoubleMeshFrame-1",
         "category":{
             "categoryName":"ProjectShowCaseFrame",
-            "projectTitle":"Questionaire Maine",
+            "projectTitle":"Quiz Forms Web App",
             "projectDescription":"Created a drag-and-drop quiz form builder with advanced question types.  Integrated authentication and OTP validation for security",
             "techStack":["MongoDB","ReactJS"],
             "githubLink":"https://github.com/TUSHAR-30/Questionaire-Form",
@@ -28,7 +28,7 @@ export const framesConfig=[
     {
         "frameId":'1',
         "frameImageName":"project-2",
-        "instanceName":"DoubleMeshFrame-2",
+        "instanceName":"DoubleMeshFrame-4",
         "category":{
             "categoryName":"ProjectShowCaseFrame",
             "projectTitle":"Todo List",
@@ -54,14 +54,14 @@ export const framesConfig=[
     {
         "frameId":'1',
         "frameImageName":"project-4",
-        "instanceName":"DoubleMeshFrame-4",
+        "instanceName":"DoubleMeshFrame-0",
         "category":{
             "categoryName":"ProjectShowCaseFrame",
-            "projectTitle":"Real Estate",
-            "projectDescription":"An interactive Real Estate website with Villas Listed and Consultation provision.",
+            "projectTitle":"Portfolio Generator",
+            "projectDescription":" A web application for creating and publishing portfolios using customizable templates",
             "techStack":["MongoDB","ReactJS"],
-            "githubLink":"https://github.com/TUSHAR-30/MERN-STACK-LUXURY-REAL-ESTATE",
-            "demoLink":"https://mern-stack-luxury-real-estate.vercel.app/",
+            "githubLink":"https://github.com/TUSHAR-30/PortfolioGenerator",
+            "demoLink":"https://portfolio-generator-frontend-ashen.vercel.app/",
         }
     },
     {

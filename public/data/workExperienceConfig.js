@@ -8,8 +8,18 @@ export const workExperienceConfig = {
         "position": [1.50, 0, 0]
     },
     "experiencesData": [
+         {
+            "jobTitle": "1) Backend Developer",
+            "company": "Freelancing",
+            "duration": "June 2026 - Present",
+            "responsibilitiesData": [
+                "• Built multi-tenant features on NestJS + PostgreSQL, adding tenant data isolation to onboard a second client.",
+                "• Replaced Trigger.dev with an in-house Bull/Redis email queue worker, removing a third-party dependency.",
+                "• Integrated Zoho CRM to auto-create leads from site visits and built a sales pipeline module on existing lead data."
+            ]
+        },
         {
-            "jobTitle": "1) Full Stack Developer",
+            "jobTitle": "2) Full Stack Developer",
             "company": "Kalvig",
             "duration": "April 2025 - January 2026",
             "responsibilitiesData": [
@@ -19,7 +29,7 @@ export const workExperienceConfig = {
             ]
         },
         {
-            "jobTitle": "2) Full Stack Developer",
+            "jobTitle": "3) Full Stack Developer",
             "company": "GolokaIT",
             "duration": "July 2024 - September 2024",
             "responsibilitiesData": [
